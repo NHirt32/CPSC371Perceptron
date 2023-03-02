@@ -40,6 +40,8 @@ class Perceptron:
         if err != 0:
             for index, weight in enumerate(self.weights):
                 self.weights[index] = weight + (self.lrate * (true_result - tested_result) * attributes[index])
+
+            self.bias = self.bias + (self.lrate * (true_result - tested_result))
             return 1
         else:
             return 0
@@ -48,13 +50,17 @@ class Perceptron:
         """Takes in a bunch of datapoints, and adjusts the weights accordingly. Iterates
             for as many times as is set in the iterations field."""
         counter = 0
-        errors = 0
+        global_errors = 0
 
         while counter < self.iterations:
+            errors = 0
             for datapoint in self.data:
-                errors = errors + self.train_datapoint(datapoint)
+                err = self.train_datapoint(datapoint)
+                errors = errors + err
+                global_errors = global_errors + err
 
-            print(self.to_string() +"\nNumber of errors thus far: " + str(errors))
+            print(self.to_string() +"\nNumber of errors globally: " + str(global_errors) +
+                  "\nNumber of errors this epoch: " + str(errors) + "\n")
             counter = counter + 1
 
 
