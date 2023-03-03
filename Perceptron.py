@@ -64,7 +64,7 @@ class Perceptron:
                 errors = errors + err
                 self.global_error = self.global_error + err
 
-            print(self.to_string() + "\nNumber of errors this epoch: " + str(errors) + "\n")
+            #print(self.to_string() + "\nNumber of errors this epoch: " + str(errors) + "\n")
             counter = counter + 1
             self.epoch = self.epoch + 1
 
@@ -118,3 +118,21 @@ class Perceptron:
         self.epoch = mushroom_perceptron_dict["epoch"]
 
         file.close()
+
+    def predict_test_data(self):
+        errors = 0
+        for datapoint in self.data:
+            attributes = datapoint[slice(1, len(datapoint))]
+            tested_result = self.predict(attributes)
+            true_result = 1
+
+            # if is poisonous
+            if datapoint[0] == 15:
+                true_result = -1
+
+            print("Predicted = " + str(tested_result) + " | Actual = " + str(true_result))
+
+            if tested_result != true_result:
+                errors = errors + 1
+
+        print("Errors = " + str(errors) + "\n")
