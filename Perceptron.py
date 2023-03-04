@@ -64,7 +64,7 @@ class Perceptron:
                 errors = errors + err
                 self.global_error = self.global_error + err
 
-            #print(self.to_string() + "\nNumber of errors this epoch: " + str(errors) + "\n")
+            print(self.to_string() + "\nNumber of errors this epoch: " + str(errors) + "\n")
             counter = counter + 1
             self.epoch = self.epoch + 1
 
@@ -119,7 +119,10 @@ class Perceptron:
 
         file.close()
 
+
     def predict_test_data(self):
+        """Predicts attributes out of the given test data.
+            Takes in test data, not unknown data."""
         errors = 0
         for datapoint in self.data:
             attributes = datapoint[slice(1, len(datapoint))]
