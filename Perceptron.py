@@ -64,7 +64,7 @@ class Perceptron:
                 errors = errors + err
                 self.global_error = self.global_error + err
 
-            print(self.to_string() + "\nNumber of errors this epoch: " + str(errors) + "\n")
+            # print(self.to_string() + "\nNumber of errors this epoch: " + str(errors) + "\n")
             counter = counter + 1
             self.epoch = self.epoch + 1
 
