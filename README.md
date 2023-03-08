@@ -1,3 +1,3 @@
 # CPSC371Perceptron
 
-##Contributors
+## Contributors
