@@ -121,7 +121,7 @@ class Perceptron:
 
 
     def predict_test_data(self):
-        """Predicts attributes out of the given test data.
+        """Predicts attributes out of the test data.
             Takes in test data, not unknown data."""
         errors = 0
         for datapoint in self.data:
@@ -139,3 +139,26 @@ class Perceptron:
                 errors = errors + 1
 
         print("Errors = " + str(errors) + "\n")
+
+    def predict_unknown_data(self):
+        """Predicts attributes out of the unknown data.
+            Takes in unknown data, not test data.
+            Writes out the predictions to predictionResultsPER.txt."""
+
+        outfile = open("predictionResultsPER.txt", "w")
+
+        errors = 0
+        for datapoint in self.data:
+            tested_result = self.predict(datapoint)
+
+            # not poisonous
+            if tested_result == 1:
+                outfile.write("e\n")
+                print("e")
+
+            # poisonous
+            else:
+                outfile.write("p\n")
+                print("p")
+
+        outfile.close()
