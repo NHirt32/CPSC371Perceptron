@@ -17,7 +17,8 @@
 
 # Data Division
     In training and testing the perceptron, an 80 - 20 split was used for the provided 8000 mushrooms. 
-    The latter 1600 were used as test data, and the previous 6400 mushrooms were used for training.
+    The latter 1600 were used as test data and are in file "MushroomTestData_1600.txt", and the
+    previous 6400 mushrooms were used for training and are in file "MushroomTrainingData_6400.txt".
 
 # Final Settings
 
