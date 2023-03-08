@@ -36,7 +36,7 @@
     
 # How To Use
 
-Open up the project in something that runs python files, like an IDE, run main.py.
+Open up the project in something that runs python files, like an IDE, and run main.py.
 
 You will be prompted in the console to input either "100" or "1600."
 Entering in "100" will run the current perceptron model prediction on the 100 unknown mushrooms,
